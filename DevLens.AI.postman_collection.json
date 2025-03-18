@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "29671938-8e4d-4bfa-9071-3899da91db15",
+		"name": "DevLens.AI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38495637"
+	},
+	"item": [
+		{
+			"name": "CodeSnippet",
+			"item": [
+				{
+					"name": "getCodeSnippet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/snippets/4f05e8c7-d351-471f-b6ef-a129e677ca11",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"snippets",
+								"4f05e8c7-d351-471f-b6ef-a129e677ca11"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "submitCodeSnippet",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"title\": \"SQL Injection Example\",\n  \"language\": \"java\",\n  \"content\": \"public class UserManager {\\n    private Connection dbConnection;\\n    \\n    public UserManager(Connection dbConnection) {\\n        this.dbConnection = dbConnection;\\n    }\\n    \\n    public User findUserByUsername(String username) throws SQLException {\\n        // SECURITY ISSUE: SQL Injection vulnerability\\n        String query = \\\"SELECT * FROM users WHERE username = '\\\" + username + \\\"'\\\";\\n        \\n        Statement stmt = dbConnection.createStatement();\\n        ResultSet rs = stmt.executeQuery(query);\\n        \\n        if (rs.next()) {\\n            return new User(\\n                rs.getInt(\\\"id\\\"),\\n                rs.getString(\\\"username\\\"),\\n                rs.getString(\\\"email\\\")\\n            );\\n        }\\n        \\n        return null;\\n    }\\n}\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/snippets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"snippets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllSnippets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/snippets",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"snippets"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Analysis",
+			"item": [
+				{
+					"name": "analyzeCodeSnippet",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/analysis/snippet/0664f11d-ab10-4c86-9f92-535414d201e3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"analysis",
+								"snippet",
+								"0664f11d-ab10-4c86-9f92-535414d201e3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAnalysisResult",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/analysis/snippet/0664f11d-ab10-4c86-9f92-535414d201e3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"analysis",
+								"snippet",
+								"0664f11d-ab10-4c86-9f92-535414d201e3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
